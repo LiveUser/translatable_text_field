@@ -29,7 +29,7 @@ TranslatableText(
 of having the displayLanguage and options properties. It supports all of the other Text field properties*/
 ~~~
 
-Note: You can also use your own custom language instead of using the languages enum.
+Note: You can also use your own custom language instead of using the languages enum(actually its a class that returns a Language class that returns a String :).
 
 Example:
 
@@ -84,3 +84,4 @@ void main() {
 }
 ~~~
 
+Hecho en 🇵🇷 por Radamés J. Valentín Reyes
