@@ -176,7 +176,7 @@ class TranslatableText extends StatelessWidget {
   TranslatableText({@required this.options,@required this.displayLanguage,this.locale,this.maxLines,this.overflow,this.semanticsLabel,this.softWrap,this.strutStyle,this.style,this.textAlign,this.textDirection,this.textHeightBehavior,this.textScaleFactor,this.textWidthBasis});
   @override
   Widget build(BuildContext context) {
-    int index = options.indexWhere((option) => option.language == displayLanguage);
+    int index = options.indexWhere((option) => option.language.languageName == displayLanguage.languageName);
     //If the selected language is not found
     String displayText = index == -1 ? 'Language not Supported': options[index].text;
     return Text(
