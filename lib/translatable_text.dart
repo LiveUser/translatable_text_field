@@ -35,7 +35,7 @@ class Language{
   Language(this.languageName);
 }
 class Languages{
-  static  Language afrikaans = Language('afrikaans');
+  static  Language afrikaans = Language('Afrikaans');
   static  Language albanian = Language('shqip');
   static  Language amharic = Language('አማርኛ');
   static  Language arabic = Language('عربى');
@@ -130,7 +130,7 @@ class Languages{
   static  Language slovak = Language('slovák');
   static  Language slovenian = Language('slovenščina');
   static  Language somali = Language('somali');
-  static  Language spanish = Language('español');
+  static  Language spanish = Language('Español');
   static  Language sundanese = Language('sundanis');
   static  Language swahili = Language('kiswahili');
   static  Language swedish = Language('svenska');
@@ -156,24 +156,24 @@ class Languages{
 class TranslateOption{
   final Language language;
   final String text;
-  TranslateOption({@required this.language,@required this.text});
+  TranslateOption({required this.language,required this.text});
 }
 class TranslatableText extends StatelessWidget {
   final Language displayLanguage;
   final List<TranslateOption> options;
-  final TextStyle style;
-  final StrutStyle strutStyle;
-  final TextAlign  textAlign;
-  final TextDirection textDirection;
-  final Locale locale;
-  final bool softWrap;
-  final TextOverflow overflow;
-  final double textScaleFactor;
-  final int maxLines;
-  final String semanticsLabel;
-  final TextWidthBasis textWidthBasis;
-  final TextHeightBehavior textHeightBehavior;
-  TranslatableText({@required this.options,@required this.displayLanguage,this.locale,this.maxLines,this.overflow,this.semanticsLabel,this.softWrap,this.strutStyle,this.style,this.textAlign,this.textDirection,this.textHeightBehavior,this.textScaleFactor,this.textWidthBasis});
+  final TextStyle? style;
+  final StrutStyle? strutStyle;
+  final TextAlign?  textAlign;
+  final TextDirection? textDirection;
+  final Locale? locale;
+  final bool? softWrap;
+  final TextOverflow? overflow;
+  final double? textScaleFactor;
+  final int? maxLines;
+  final String? semanticsLabel;
+  final TextWidthBasis? textWidthBasis;
+  final TextHeightBehavior? textHeightBehavior;
+  TranslatableText({required this.options,required this.displayLanguage,this.locale,this.maxLines,this.overflow,this.semanticsLabel,this.softWrap,this.strutStyle,this.style,this.textAlign,this.textDirection,this.textHeightBehavior,this.textScaleFactor,this.textWidthBasis});
   @override
   Widget build(BuildContext context) {
     int index = options.indexWhere((option) => option.language.languageName == displayLanguage.languageName);
