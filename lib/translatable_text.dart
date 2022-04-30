@@ -1,29 +1,32 @@
 import 'package:flutter/material.dart';
 
 void main() {
+  Text translatableText = TranslatableText(
+    displayLanguage: Languages.german,
+    options: [
+      TranslateOption(
+        language: Languages.english,
+        text: 'Hello',
+      ),
+      TranslateOption(
+        language: Languages.spanish,
+        text: 'Hola',
+      ),
+      TranslateOption(
+        language: Languages.german,
+        text: 'Hallo',
+      ),
+    ],
+    style: TextStyle(
+      color: Colors.blue,
+      fontSize: 40,
+    ),
+  );
   runApp(MaterialApp(
     home: Scaffold(
       body: SafeArea(
-        child: TranslatableText(
-          displayLanguage: Languages.german,
-          options: [
-            TranslateOption(
-              language: Languages.english,
-              text: 'Hello',
-            ),
-            TranslateOption(
-              language: Languages.spanish,
-              text: 'Hola',
-            ),
-            TranslateOption(
-              language: Languages.german,
-              text: 'Hallo',
-            ),
-          ],
-          style: TextStyle(
-            color: Colors.blue,
-            fontSize: 40,
-          ),
+        child: Text(
+          translatableText.data!,
         ),
       ),
     ),
@@ -158,41 +161,39 @@ class TranslateOption{
   final String text;
   TranslateOption({required this.language,required this.text});
 }
-class TranslatableText extends StatelessWidget {
-  final Language displayLanguage;
-  final List<TranslateOption> options;
-  final TextStyle? style;
-  final StrutStyle? strutStyle;
-  final TextAlign?  textAlign;
-  final TextDirection? textDirection;
-  final Locale? locale;
-  final bool? softWrap;
-  final TextOverflow? overflow;
-  final double? textScaleFactor;
-  final int? maxLines;
-  final String? semanticsLabel;
-  final TextWidthBasis? textWidthBasis;
-  final TextHeightBehavior? textHeightBehavior;
-  TranslatableText({required this.options,required this.displayLanguage,this.locale,this.maxLines,this.overflow,this.semanticsLabel,this.softWrap,this.strutStyle,this.style,this.textAlign,this.textDirection,this.textHeightBehavior,this.textScaleFactor,this.textWidthBasis});
-  @override
-  Widget build(BuildContext context) {
-    int index = options.indexWhere((option) => option.language.languageName == displayLanguage.languageName);
-    //If the selected language is not found
-    String displayText = index == -1 ? 'Language not Supported': options[index].text;
-    return Text(
-      displayText,
-      locale: locale,
-      maxLines: maxLines,
-      overflow: overflow,
-      semanticsLabel: semanticsLabel,
-      softWrap: softWrap,
-      strutStyle: strutStyle,
-      style: style,
-      textAlign: textAlign,
-      textDirection: textDirection,
-      textHeightBehavior: textHeightBehavior,
-      textScaleFactor: textScaleFactor,
-      textWidthBasis: textWidthBasis,
-    );
-  }
+// ignore: non_constant_identifier_names
+Text TranslatableText({
+  required Language displayLanguage,
+  required List<TranslateOption> options,
+  TextStyle? style,
+  StrutStyle? strutStyle,
+  TextAlign?  textAlign,
+  TextDirection? textDirection,
+  Locale? locale,
+  bool? softWrap,
+  TextOverflow? overflow,
+  double? textScaleFactor,
+  int? maxLines,
+  String? semanticsLabel,
+  TextWidthBasis? textWidthBasis,
+  TextHeightBehavior? textHeightBehavior,
+}){
+  int index = options.indexWhere((option) => option.language.languageName == displayLanguage.languageName);
+  //If the selected language is not found
+  String displayText = index == -1 ? 'Language not Supported': options[index].text;
+  return Text(
+    displayText,
+    locale: locale,
+    maxLines: maxLines,
+    overflow: overflow,
+    semanticsLabel: semanticsLabel,
+    softWrap: softWrap,
+    strutStyle: strutStyle,
+    style: style,
+    textAlign: textAlign,
+    textDirection: textDirection,
+    textHeightBehavior: textHeightBehavior,
+    textScaleFactor: textScaleFactor,
+    textWidthBasis: textWidthBasis,
+  );
 }
